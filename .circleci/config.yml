@@ -1,0 +1,19 @@
+version: 2.1
+
+jobs:
+  print_hello:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - run:
+          name: "Print Hello Message"
+          command: |
+            echo "Hello, CircleCI!"
+            echo "This is a simple configuration example."
+            echo "Current date and time: $(date)"
+
+workflows:
+  version: 2
+  hello_workflow:
+    jobs:
+      - print_hello
